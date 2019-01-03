@@ -44,7 +44,7 @@ export default {
 <style lang="less" scoped>
 .to-cashType {
     .to-echart {
-        height: 400px;
+        height: 100%;
     }
 }
 </style>

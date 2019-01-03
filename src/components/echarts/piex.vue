@@ -94,7 +94,7 @@ export default {
 <style lang="less" scoped>
     .to-xyyPie{
         .to-echart{
-            height: 400px;
+            height: 100%;
         }
     }
 </style>

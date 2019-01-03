@@ -26,7 +26,7 @@ export default {
 <style lang="less" scoped>
     .to-xyyLine{
         .to-echart{
-            height: 400px;
+            height: 100%;
         }
     }
 </style>

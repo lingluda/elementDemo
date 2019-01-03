@@ -35,7 +35,7 @@
 <style lang="less" scoped>
   .to-hotelTop {
     .to-echart {
-      height: 400px;
+      height: 100%;
     }
   }
 </style>
