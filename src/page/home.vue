@@ -1,14 +1,10 @@
 <template>
   <el-container>
     <el-header>
-      <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;height: 200px;">
-       <el-radio-button :label="false">展开</el-radio-button>
-       <el-radio-button :label="true">收起</el-radio-button>
-     </el-radio-group>
     </el-header>
     <el-container>
 
-      <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+      <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" @select="select">
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-location"></i>
@@ -40,7 +36,11 @@
           <span slot="title">导航四</span>
         </el-menu-item>
       </el-menu>
-      <el-main><router-view style="background: white"/></el-main>
+      <el-main>
+        <i class="el-icon-d-arrow-right" v-if="isCollapse" style="position: absolute;margin-left: -20px;background: white" @click="push(false)"></i>
+        <i class="el-icon-d-arrow-left" v-if="!isCollapse" style="position: absolute;margin-left: -20px;background: white" @click="push(true)"></i>
+        <router-view style="background: white"/>
+      </el-main>
     </el-container>
   </el-container>
 </template>
@@ -53,11 +53,18 @@
       };
     },
     methods: {
+      push(val){
+        this.isCollapse=val
+        console.log(this.isCollapse)
+      },
       handleOpen(key, keyPath) {
         console.log(key, keyPath);
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+      select(index){
+        console.log(index)
       }
     }
   }
@@ -84,7 +91,7 @@
     background-color: #E9EEF3;
     padding: 20px;
     color: #333;
-    text-align: center;
+    //text-align: center;
     line-height: 160px;
   }
 
