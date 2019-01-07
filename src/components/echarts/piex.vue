@@ -1,5 +1,5 @@
 <template>
-    <div class="to-xyyPie">
+    <div class="to-xyyPie" v-loading="true">
         <div class="to-echart" ref="echart"></div>
     </div>
 </template>

@@ -22,4 +22,7 @@
     margin: 0;
     padding: 0
   }
+  .el-input__inner{
+    border-radius:unset !important;
+  }
 </style>

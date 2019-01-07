@@ -1,6 +1,6 @@
 <template>
   <!-- 消费统计 > TOP5住宿率 -->
-  <div class="to-hotelTop">
+  <div class="to-hotelTop" v-loading="false">
     <div class="to-echart" ref="echart"></div>
   </div>
 </template>

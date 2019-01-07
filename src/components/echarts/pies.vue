@@ -1,6 +1,6 @@
 <template>
     <!-- 消费统计 > 消费类别对比 -->
-    <div class="to-cashType">
+    <div class="to-cashType" v-loading="true">
         <div class="to-echart" ref="echart"></div>
     </div>
 </template>

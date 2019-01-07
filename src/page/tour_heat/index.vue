@@ -1,5 +1,6 @@
 <template>
   <div>{{indexss}}
+    <dateSearch></dateSearch>
     <bary style="height: 400px"></bary>
     <lines style="height: 400px"></lines>
     <pies style="height: 400px"></pies>
@@ -11,10 +12,11 @@
   export default {
     name: "index",
     components: {
-      bary: resolve => require(['@/components/echarts/bary.vue'], resolve),
-      lines: resolve => require(['@/components/echarts/lines.vue'], resolve),
-      pies: resolve => require(['@/components/echarts/pies.vue'], resolve),
-      piex: resolve => require(['@/components/echarts/piex.vue'], resolve),
+      bary: resolve => require(['../../components/echarts/bary.vue'], resolve),
+      lines: resolve => require(['../../components/echarts/lines.vue'], resolve),
+      pies: resolve => require(['../../components/echarts/pies.vue'], resolve),
+      piex: resolve => require(['../../components/echarts/piex.vue'], resolve),
+      dateSearch: resolve => require(['../../components/date/dateSearch.vue'], resolve),
     },
     data() {
       return {
