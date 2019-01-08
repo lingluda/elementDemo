@@ -1,8 +1,9 @@
 <template>
   <el-container>
     <el-header>
-      <i class="el-icon-news">您好，管理员</i>
-      <i class="el-icon-question"></i>
+      <i class="el-icon-info">您好，管理员</i>
+      <i class="el-icon-news"></i>
+      <!--<i class="el-icon-question"></i>-->
     </el-header>
     <el-container>
       <el-menu :default-active="menuselect" :unique-opened=true class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" @select="select">
@@ -56,7 +57,7 @@
         <div class="texts">ssdfafda</div>
         <i class="el-icon-d-arrow-right" v-if="isCollapse" style="position: absolute;margin-left: -20px;background: white" @click="push(false)"></i>
         <i class="el-icon-d-arrow-left" v-if="!isCollapse" style="position: absolute;margin-left: -20px;background: white" @click="push(true)"></i>
-        <router-view style="background: white"/>
+        <router-view style="background: white;padding: 20px"/>
       </el-main>
     </el-container>
   </el-container>

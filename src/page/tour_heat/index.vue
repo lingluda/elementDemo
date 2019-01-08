@@ -1,6 +1,8 @@
 <template>
-  <div>{{indexss}}
+  <div>
     <dateSearch></dateSearch>
+    <dateSearch :type="1" :date="'2018-11-11'" v-on:sdate="searchd"></dateSearch>
+    <dateSearch :type="2" :daterange="['2018-11-11','2018-11-11']" v-on:sdate="searchd"></dateSearch>
     <bary style="height: 400px"></bary>
     <lines style="height: 400px"></lines>
     <pies style="height: 400px"></pies>
@@ -27,6 +29,10 @@
       this.get_total_holiday(null,null,null)
     },
     methods:{
+      searchd(v){
+        console.log(222222222)
+        console.log(v)
+      },
       //5.8节假日游客数量
       get_total_holiday (a, s, d) {
         this.bxdata = []
