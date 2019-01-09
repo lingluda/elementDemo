@@ -87,6 +87,7 @@
         console.log(key, keyPath);
       },
       select(index){
+        console.log(index)
         localStorage.setItem('mune',index)
       }
     }

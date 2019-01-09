@@ -12,15 +12,16 @@
       </el-form-item>
 
       <el-form-item prop="password">
-        <el-input v-model="loginForm.password">
+        <el-input type="password" v-model="loginForm.password">
           <img slot="prefix" src="../assets/imgs/password.png" width="22" height="22" style="margin-top: 10px"></img>
+          <i slot="suffix" class="el-input__icon el-icon-view"></i>
         </el-input>
       </el-form-item>
 
       <el-form-item prop="code">
         <el-row :gutter="20">
           <el-col :span="12">
-            <el-input v-model="loginForm.code">
+            <el-input v-model="loginForm.code" @keyup.enter.native="submitForm('loginForm')">
             </el-input>
           </el-col>
           <el-col :span="12">
@@ -63,6 +64,7 @@
       this.createCode()
     },
     methods: {
+
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid && this.loginForm.code==this.code) {
@@ -76,7 +78,6 @@
       resetForm(formName) {
         this.$refs[formName].resetFields();
       },
-
       // 图片验证码
       createCode() {
         //先清空验证码的输入
@@ -117,7 +118,7 @@
     //border-radius: 3px;
     background: #fff;
     width:100%;
-    letter-spacing:9px;
+    letter-spacing:14px;
     font-weight: 600;
     font-size: 22px;
     color: rgba(0, 110, 255, 1);
