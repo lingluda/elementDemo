@@ -1,6 +1,6 @@
 <template>
   <div>
-    <dateSearch></dateSearch>
+    <!--<dateSearch></dateSearch>-->
     <dateSearch :type="1" :date="'2018-11-11'" v-on:sdate="searchd"></dateSearch>
     <dateSearch :type="2" :daterange="['2018-11-11','2018-11-11']" v-on:sdate="searchd"></dateSearch>
     <bary style="height: 400px"></bary>

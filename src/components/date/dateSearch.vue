@@ -1,8 +1,8 @@
 <template>
   <div class="body">
     <span class="title">旅客客流</span>
-    <el-date-picker v-if="type==1" style="width: 140px;" v-model="s.dt" :picker-options="pickerOptions1" :size="size" :clearable="clearable" value-format="yyyy-MM-dd" type="date"  placeholder="自选日期" @change="dateChange"></el-date-picker>
-    <el-date-picker v-if="type==2" style="width: 220px;" v-model="s.dr" :picker-options="pickerOptions2" :size="size" :clearable="clearable" value-format="yyyy-MM-dd" type="daterange"  range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期" @change="dateChange"></el-date-picker>
+    <el-date-picker v-if="type==1" style="width: 130px;" v-model="s.dt" :picker-options="pickerOptions1" :size="size" :clearable="clearable" value-format="yyyy-MM-dd" type="date"  placeholder="自选日期" @change="dateChange"></el-date-picker>
+    <el-date-picker v-if="type==2" style="width: 215px;" v-model="s.dr" :picker-options="pickerOptions2" :size="size" :clearable="clearable" value-format="yyyy-MM-dd" type="daterange"  range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期" @change="dateChange"></el-date-picker>
   </div>
 </template>
 

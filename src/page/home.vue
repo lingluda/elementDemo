@@ -2,7 +2,7 @@
   <el-container>
     <el-header>
       <i class="el-icon-info">您好，管理员</i>
-      <i class="el-icon-news"></i>
+      <i class="el-icon-news" @click="pic"></i>
       <!--<i class="el-icon-question"></i>-->
     </el-header>
     <el-container>
@@ -72,6 +72,10 @@
       };
     },
     methods: {
+      pic(){
+        console.log(11111)
+        this.$router.push('login')
+      },
       push(val){
         this.isCollapse=val
         console.log(this.isCollapse)
@@ -120,6 +124,7 @@
     background-color: #E9EEF3;
     padding: 0px 20px 20px 20px;
     color: #333;
+    min-width: 960px;
     //text-align: center;
     //line-height: 160px;
   }
