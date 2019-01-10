@@ -7,11 +7,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'index',
+      name: 'home',
       component: resolve => {
         require(['@/page/home.vue'], resolve)
       },
       children:[
+        {
+          path: '/',
+          name: 'index',
+          component: resolve => {
+            require(['@/page/tour_heat/index.vue'], resolve)
+          }
+        },
         {
           path: '/index',
           name: 'index',

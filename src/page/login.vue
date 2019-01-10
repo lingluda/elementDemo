@@ -12,9 +12,9 @@
       </el-form-item>
 
       <el-form-item prop="password">
-        <el-input type="password" v-model="loginForm.password">
+        <el-input :type="inpuType" v-model="loginForm.password">
           <img slot="prefix" src="../assets/imgs/password.png" width="22" height="22" style="margin-top: 10px"></img>
-          <i slot="suffix" class="el-input__icon el-icon-view"></i>
+          <i slot="suffix" class="el-input__icon el-icon-view" @click="showPW"></i>
         </el-input>
       </el-form-item>
 
@@ -45,6 +45,7 @@
     name: "login",
     data(){
       return{
+        inpuType:'password',
         code:'',
         checkCode:'',
         picLyanzhengma:'',
@@ -64,13 +65,15 @@
       this.createCode()
     },
     methods: {
-
+      showPW(){
+        this.inpuType='text'
+      },
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid && this.loginForm.code==this.code) {
             this.$router.push('index')
           } else {
-            console.log('错误');
+            this.$message.error('验证码错误');
             return false;
           }
         });
@@ -87,10 +90,12 @@
         //验证码的长度
         var codeLength = 4;
         //随机数
-        var random = new Array(2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'v', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'V', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+        //var random = new Array(2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+        var random = new Array(2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
         for (var i = 0; i < codeLength; i++) {
           //取得随机数的索引（0~35）
-          var index = Math.floor(Math.random() * 36);
+          //var index = Math.floor(Math.random() * 53);
+          var index = Math.floor(Math.random() * 30);
           //根据索引取得随机数加到code上
           this.code += random[index];
         }
