@@ -72,6 +72,7 @@
         this.$refs[formName].validate((valid) => {
           if (valid && this.loginForm.code==this.code) {
             this.$router.push('index')
+
           } else {
             this.$message.error('验证码错误');
             return false;

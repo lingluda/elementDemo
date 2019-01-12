@@ -57,7 +57,7 @@
         <div class="texts">ssdfafda</div>
         <i class="el-icon-d-arrow-right" v-if="isCollapse" style="position: absolute;margin-left: -20px;background: white" @click="push(false)"></i>
         <i class="el-icon-d-arrow-left" v-if="!isCollapse" style="position: absolute;margin-left: -20px;background: white" @click="push(true)"></i>
-        <router-view style="background: white;padding: 20px"/>
+        <router-view style="background: white;padding: 10px 20px 0 20px;height: calc(100vh - 125px);overflow-y: scroll"/>
       </el-main>
     </el-container>
   </el-container>
@@ -117,7 +117,8 @@
     background-color: #B3C0D1;
     color: #333;
     text-align: right;
-    line-height: 60px;
+    line-height: 50px;
+    height: 50px !important;
   }
 
 
@@ -126,6 +127,8 @@
     padding: 0px 20px 20px 20px;
     color: #333;
     min-width: 960px;
+    min-height: calc(100vh - 50px);
+
     //text-align: center;
     //line-height: 160px;
   }

@@ -26,11 +26,11 @@
       }
     },
     mounted() {
-      this.get_total_holiday(null,null,null)
+      this.get_total_holiday(null,null,'2018-11-11')
     },
     methods:{
       searchd(v){
-        console.log(222222222)
+        this.get_total_holiday(null,null,v.date)
         console.log(v)
       },
       //5.8节假日游客数量
