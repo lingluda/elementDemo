@@ -26,6 +26,13 @@ export default new Router({
             require(['@/page/tour_heat/index.vue'], resolve)
           }
         },
+        {
+          path: '/dd',
+          name: 'dd',
+          component: resolve => {
+            require(['@/page/tour_heat/dd.vue'], resolve)
+          }
+        },
       ]
     },
     {
