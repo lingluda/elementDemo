@@ -8,7 +8,8 @@ import router from './router'
 import store from '../src/store/index.js'
 import ps from './utils/ps'
 //适配ie
-import 'babel-polyfill'
+require("babel-polyfill"); //es5
+//import "babel-polyfill"; //es6
 
 Vue.config.productionTip = false
 Vue.use(ElementUI);

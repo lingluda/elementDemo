@@ -2,7 +2,7 @@
   <el-container>
     <el-header>
       <i class="el-icon-info">您好，管理员</i>
-      <i class="el-icon-news" @click="pic"></i>
+      <i class="el-icon-news" @click="logout"></i>
       <!--<i class="el-icon-question"></i>-->
     </el-header>
     <el-container>
@@ -72,8 +72,8 @@
       };
     },
     methods: {
-      pic(){
-        console.log(11111)
+      logout(){
+        localStorage.clear()
         this.$router.push('login')
       },
       push(val){
