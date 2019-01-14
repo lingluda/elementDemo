@@ -11,6 +11,11 @@
 
       }
     },
+    mounted(){
+      setTimeout(() => {
+        sessionStorage.clear()
+      },1*60*60*1000)
+    },
     methods: {
 
     }

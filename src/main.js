@@ -17,10 +17,7 @@ Vue.prototype.ps = ps
 // 封装echarts
 import myEcharts from "./libs/echarts/index.js"
 Vue.prototype.echart = myEcharts;
-//切换页面回到顶部
-router.afterEach((to, from, next) => {
-  window.scrollTo(0, 0);
-})
+
 
 /* eslint-disable no-new */
 new Vue({

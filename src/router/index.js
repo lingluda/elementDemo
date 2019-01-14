@@ -3,25 +3,24 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-export default new Router({
+let router = new Router({
   routes: [
     {
       path: '/',
       name: 'home',
+      meta: {requireAuth: false},
       component: resolve => {
         require(['@/page/home.vue'], resolve)
       },
       children:[
         {
           path: '/',
-          name: 'index',
-          component: resolve => {
-            require(['@/page/tour_heat/index.vue'], resolve)
-          }
+          redirect: '/index',
         },
         {
           path: '/index',
           name: 'index',
+          meta: {requireAuth: true},
           component: resolve => {
             require(['@/page/tour_heat/index.vue'], resolve)
           }
@@ -29,6 +28,7 @@ export default new Router({
         {
           path: '/dd',
           name: 'dd',
+          meta: {requireAuth: true},
           component: resolve => {
             require(['@/page/tour_heat/dd.vue'], resolve)
           }
@@ -38,9 +38,31 @@ export default new Router({
     {
       path: '/login',
       name: 'login',
+      meta: {requireAuth: false},
       component: resolve => {
         require(['@/page/login.vue'], resolve)
       },
     }
   ]
 })
+//切换页面回到顶部
+router.afterEach((to, from, next) => {
+  window.scrollTo(0, 0);
+})
+// 拦截登录，token验证
+router.beforeEach((to, from, next) => {
+  console.log(to.meta.requireAuth)
+  if (to.meta.requireAuth) {
+    console.log(sessionStorage.getItem('token'))
+    if (sessionStorage.getItem('token') != null) {
+      next()
+    } else {
+      next({
+        path: '/login'
+      })
+    }
+  } else {
+    next()
+  }
+})
+export default router

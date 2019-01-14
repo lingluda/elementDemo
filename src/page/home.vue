@@ -68,12 +68,12 @@
     data() {
       return {
         isCollapse: false,
-        menuselect: localStorage.getItem('mune')||'1-4-1',
+        menuselect: sessionStorage.getItem('mune')||'1-4-1',
       };
     },
     methods: {
       logout(){
-        localStorage.clear()
+        sessionStorage.clear()
         this.$router.push('login')
       },
       push(val){
@@ -86,9 +86,10 @@
       handleClose(key, keyPath) {
         console.log(key, keyPath);
       },
-      select(index){
+      select(index,indexPath){
+        console.log(indexPath)
         this.$router.push(index)
-        localStorage.setItem('mune',index)
+        sessionStorage.setItem('mune',index)
       }
     }
   }
@@ -118,6 +119,7 @@
     color: #333;
     text-align: right;
     line-height: 50px;
+    min-width: 1160px;
     height: 50px !important;
   }
 
