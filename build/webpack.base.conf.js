@@ -19,6 +19,8 @@ module.exports = {
     'vue':'Vue',
     'element-ui':'ELEMENT',
     'vue-moment':'moment',
+    'vue-router': 'VueRouter',
+    'echarts': 'echarts'
   },
   output: {
     path: config.build.assetsRoot,
