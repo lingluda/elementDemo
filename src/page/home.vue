@@ -102,7 +102,7 @@
   }
   .texts{
     margin: 0px 0px 10px -20px;
-    background: white;
+    background: #398BF7;
     width: calc(100% + 34.4px);
     line-height: 25px;
     color: #000;
@@ -111,11 +111,14 @@
     padding: 5px 0 5px 5px;
   }
   .el-menu-vertical-demo:not(.el-menu--collapse) {
+    background-color: #242a33;
+    text-color: #242a33;
+    active-text-color: #242a33;
     width: 200px;
     min-height: 400px;
   }
   .el-header, .el-footer {
-    background-color: #B3C0D1;
+    background-color: #025a83;
     color: #333;
     text-align: right;
     line-height: 50px;
@@ -125,7 +128,7 @@
 
 
   .el-main {
-    background-color: #E9EEF3;
+    background-color: #383f48;
     padding: 0px 20px 20px 20px;
     color: #333;
     min-width: 960px;
