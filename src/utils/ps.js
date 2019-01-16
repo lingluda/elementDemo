@@ -9,5 +9,14 @@ ps.post = function (url,params,callback) {
     callback(resp.data.hits)
   })
 }
+ps.newLine = function(str){
+  const strlen = str.toString()
+  console.log(strlen.length)
+  if (strlen.length > 5) {
+    return strlen.replace(/\S{5}/g, match => match + '\n')
+  }else {
+    return strlen
+  }
+}
 axios.defaults.baseURL = 'http://tour.tcloud.mobi/ytbi/func/'
 export default ps

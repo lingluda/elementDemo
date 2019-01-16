@@ -109,7 +109,8 @@
     margin-bottom: 20px;
   }
   .title {
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: bold;
     //line-height: 32px;
     //text-align: center;
   }

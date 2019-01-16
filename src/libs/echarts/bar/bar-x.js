@@ -35,7 +35,8 @@ export default {
             }
         },
         axisLabel: {
-            color: "#888"
+          interval:0,
+          color: "#888"
         },
         axisTick: {
             alignWithLabel: true
