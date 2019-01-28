@@ -16,10 +16,6 @@
       if (loading!= null){
         document.body.removeChild(loading)
       }
-      setTimeout(() => {
-        console.log('setTimeout')
-        sessionStorage.clear()
-      },10*1000)
     },
     methods: {
 
@@ -38,5 +34,7 @@
   .el-menu{
     border: unset !important;
   }
-
+  .el-header{
+    padding: 0px 20px 0 10px;
+  }
 </style>

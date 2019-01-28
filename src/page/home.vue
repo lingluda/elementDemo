@@ -1,9 +1,22 @@
 <template>
   <el-container>
     <el-header>
+      <div style="display: flex">
+        <img src="../assets/imgs/timg.png" width="50" height="50" style='vertical-align:middle;' />
+        <span style="color: #fff;font-size: 18px;margin-top: 3px;font-weight: bold">游云南综合管理平台</span>
+        <el-menu :default-active="activeIndex" style="height: 50px;margin-left: 40px" mode="horizontal"
+                 background-color="#025a83"
+                 text-color="#BBBBBB"
+                 active-text-color="#006EFF">
+          <el-menu-item index="1" style="height: 50px;line-height: 50px">处理中心</el-menu-item>
+          <el-menu-item index="2" style="height: 50px;line-height: 50px">处理中心</el-menu-item>
+          <el-menu-item index="3" style="height: 50px;line-height: 50px">处理中心</el-menu-item>
+        </el-menu>
+      </div>
+      <div>
       <img src="../assets/imgs/user.png" width="20" height="20" style='vertical-align:middle;'/><span style="color: white;vertical-align:middle;"> 您好，管理员</span>
       <img src="../assets/imgs/password.png" width="20" height="20" style='vertical-align:middle;' @click="logout"/>
-      <!--<i class="el-icon-question"></i>-->
+      </div>
     </el-header>
     <el-container>
       <el-menu :default-active="menuselect" :unique-opened=true class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" @select="select"
@@ -57,16 +70,11 @@
       </el-menu>
 
       <el-main>
-        <div class="texts">
-        <el-breadcrumb separator-class="el-icon-arrow-right">
-          <el-breadcrumb-item>{{FB}}</el-breadcrumb-item>
-          <el-breadcrumb-item>{{SB}}</el-breadcrumb-item>
-          <el-breadcrumb-item v-if="TB.length">{{TB}}</el-breadcrumb-item>
-        </el-breadcrumb>
+        <div class="texts">十二
         </div>
-        <i class="el-icon-d-arrow-right" v-if="isCollapse" style="position: absolute;margin-left: -20px;background: white" @click="push(false)"></i>
-        <i class="el-icon-d-arrow-left" v-if="!isCollapse" style="position: absolute;margin-left: -20px;background: white" @click="push(true)"></i>
-        <router-view style="background: white;padding: 10px 20px 0 20px;height: calc(100vh - 110px);overflow-y: scroll"/>
+        <i class="el-icon-d-arrow-right" v-if="isCollapse" style="position: absolute;margin: -27px 0px 0px -20px;background: white" @click="push(false)"></i>
+        <i class="el-icon-d-arrow-left" v-if="!isCollapse" style="position: absolute;margin: -27px 0px 0px -20px;background: white" @click="push(true)"></i>
+        <router-view style="background: white;padding: 10px 20px 0 20px;height: calc(100vh - 115px);overflow-y: scroll"/>
       </el-main>
     </el-container>
   </el-container>
@@ -77,15 +85,13 @@
     data() {
       return {
         isCollapse: false,
-        menuselect: sessionStorage.getItem('menuIndex')||'1-4-1',
-        FB:sessionStorage.getItem('FB')||'导航一',
-        SB:sessionStorage.getItem('SB')||'选项一',
-        TB:sessionStorage.getItem('TB')||'',
+        activeIndex:'1',
+        menuselect: this.ps.getCookie('menuIndex')||'1-4-1',
       };
     },
     methods: {
       logout(){
-        sessionStorage.clear()
+        this.ps.delCookie('token')
         this.$router.push('login')
       },
       push(val){
@@ -101,19 +107,7 @@
       select(index,indexPath){
         console.log(indexPath[0]=='1','sssssbb')
         this.$router.push(index)
-        sessionStorage.setItem('menuIndex',index)
-         if (indexPath[0]=='1'){
-           this.FB = '导航一'
-           sessionStorage.setItem('FB','导航一')
-         }
-         if (indexPath[1]=='index') {
-           this.SB = '选项一'
-           sessionStorage.setItem('SB','选项一')
-         }
-         if (indexPath[1]=='dd') {
-           this.SB = '选项二'
-           sessionStorage.setItem('SB','选项二')
-         }
+        this.ps.setCookie('menuIndex',index,1)
       }
     }
   }
@@ -127,23 +121,22 @@
   .texts{
     margin: 0px 0px 4px -20px;
     background: #fff;
-    width: calc(100% + 34.4px);
-    padding: 5px 0 5px 5px;
+    width: calc(100% + 19px);
+    padding: 5px 0 5px 20px;
   }
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
     min-height: 400px;
   }
   .el-header, .el-footer {
+    display: flex;
+    justify-content: space-between;
     background-color: #025a83;
-    //color: #333;
     text-align: right;
     line-height: 45px;
     min-width: 1160px;
     height: 50px !important;
   }
-
-
   .el-main {
     background-color: #383f48;
     padding: 0px 20px 20px 20px;
@@ -151,8 +144,6 @@
     min-width: 960px;
     min-height: calc(100vh - 50px);
 
-    //text-align: center;
-    //line-height: 160px;
   }
 
   body > .el-container {

@@ -9,6 +9,7 @@ ps.post = function (url,params,callback) {
     callback(resp.data.hits)
   })
 }
+//换行
 ps.newLine = function(str){
   const strlen = str.toString()
   console.log(strlen.length)
@@ -17,6 +18,23 @@ ps.newLine = function(str){
   }else {
     return strlen
   }
+}
+//Cookie操作-存
+ps.setCookie = function (name, value, days){
+  var d = new Date;
+  d.setTime(d.getTime() + 24*60*60*1000*days);
+  window.document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
+}
+//Cookie操作-取
+ps.getCookie = function(name){
+  var v = window.document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+  return v ? v[2] : null;
+}
+//Cookie-删除
+ps.delCookie = function(name){
+  var d = new Date;
+  d.setTime(d.getTime() - 1);
+  window.document.cookie = name + "=" + '' + ";path=/;expires=" + d.toGMTString();
 }
 axios.defaults.baseURL = 'http://tour.tcloud.mobi/ytbi/func/'
 export default ps

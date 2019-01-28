@@ -7,6 +7,8 @@
     <lines style="height: 400px"></lines>
     <pies style="height: 400px"></pies>
     <piex style="height: 400px"></piex>
+    <barys style="height: 400px"></barys>
+    <ynMap style="height: 400px"></ynMap>
   </div>
 </template>
 
@@ -19,6 +21,8 @@
       pies: resolve => require(['../../components/echarts/pies.vue'], resolve),
       piex: resolve => require(['../../components/echarts/piex.vue'], resolve),
       dateSearch: resolve => require(['../../components/date/dateSearch.vue'], resolve),
+      barys: resolve => require(['../../components/echarts/barys.vue'], resolve),
+      ynMap: resolve => require(['../../components/map/ynMap.vue'], resolve),
     },
     data() {
       return {

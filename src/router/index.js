@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
+import ps from '../utils/ps'
 Vue.use(Router)
 
 let router = new Router({
@@ -53,8 +53,9 @@ router.afterEach((to, from, next) => {
 router.beforeEach((to, from, next) => {
   console.log(typeof to.meta.requireAuth)
   if (to.meta.requireAuth) {
-    console.log('??',typeof sessionStorage.getItem('token'))
-    if (sessionStorage.getItem('token')) {
+    console.log('??',typeof ps.getCookie('token'))
+    console.log('??',ps.getCookie('token'))
+    if (ps.getCookie('token')) {
       next()
     } else {
       next({

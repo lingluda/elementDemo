@@ -71,10 +71,7 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid && this.loginForm.code==this.code) {
-            sessionStorage.setItem('token',1)
-            setTimeout(() => {
-              sessionStorage.clear()
-            },1*60*60*1000)
+            this.ps.setCookie('token',1,1)
             this.$router.push('index')
           } else {
             this.$message.error('验证码错误');
