@@ -35,6 +35,6 @@
     border: unset !important;
   }
   .el-header{
-    padding: 0px 20px 0 10px;
+    padding: 0px 20px 0 7px !important;
   }
 </style>

@@ -101,7 +101,7 @@
                 }
               ]
           };
-          this.echart(dom, opt,"")
+          this.echart(dom, opt)
         }
       }
     }
