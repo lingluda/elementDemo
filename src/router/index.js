@@ -53,8 +53,8 @@ router.afterEach((to, from, next) => {
 router.beforeEach((to, from, next) => {
   console.log(typeof to.meta.requireAuth)
   if (to.meta.requireAuth) {
-    console.log('??',typeof ps.getCookie('token'))
-    console.log('??',ps.getCookie('token'))
+    console.log('typeof_token',typeof ps.getCookie('token'))
+    console.log('token::',ps.getCookie('token'))
     if (ps.getCookie('token')) {
       next()
     } else {

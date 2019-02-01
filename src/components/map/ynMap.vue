@@ -79,24 +79,24 @@
                     }
                   },
                   data:[
-                    {name: '昆明市', value: 12},
-                    {name: '保山市', value: 232},
-                  /*  {name: '昆明市', value: randomValue()},
-                    {name: '保山市', value: randomValue()},
-                    {name: '昭通市', value: randomValue()},
-                    {name: '玉溪市', value: randomValue()},
-                    {name: '丽江市', value: randomValue()},
-                    {name: '普洱市', value: randomValue()},
-                    {name: '临沧市', value: randomValue()},
-                    {name: '曲靖市', value: randomValue()},
-                    {name: '大理白族自治州', value: randomValue()},
-                    {name: '迪庆藏族自治州', value: randomValue()},
-                    {name: '怒江傈僳族自治州', value: randomValue()},
-                    {name: '楚雄彝族自治州', value: randomValue()},
-                    {name: '德宏傣族景颇族自治州', value: randomValue()},
-                    {name: '西双版纳傣族自治州', value: randomValue()},
-                    {name: '红河哈尼族彝族自治州', value: randomValue()},
-                    {name: '文山壮族苗族自治州', value: randomValue()}*/
+                    /*  {name: '昆明市', value: 12},
+                     {name: '保山市', value: 232},
+                     {name: '昆明市', value: randomValue()},
+                     {name: '保山市', value: randomValue()},
+                     {name: '昭通市', value: randomValue()},
+                     {name: '玉溪市', value: randomValue()},
+                     {name: '丽江市', value: randomValue()},
+                     {name: '普洱市', value: randomValue()},
+                     {name: '临沧市', value: randomValue()},
+                     {name: '曲靖市', value: randomValue()},
+                     {name: '大理白族自治州', value: randomValue()},
+                     {name: '迪庆藏族自治州', value: randomValue()},
+                     {name: '怒江傈僳族自治州', value: randomValue()},
+                     {name: '楚雄彝族自治州', value: randomValue()},
+                     {name: '德宏傣族景颇族自治州', value: randomValue()},
+                     {name: '西双版纳傣族自治州', value: randomValue()},
+                     {name: '红河哈尼族彝族自治州', value: randomValue()},
+                     {name: '文山壮族苗族自治州', value: randomValue()}*/
                   ]
                 }
               ]

@@ -86,7 +86,7 @@
       return {
         isCollapse: false,
         activeIndex:'1',
-        menuselect: this.ps.getCookie('menuIndex')||'1-4-1',
+        menuselect: sessionStorage.getItem('menuIndex')||'index',
       };
     },
     methods: {
@@ -107,7 +107,7 @@
       select(index,indexPath){
         console.log(indexPath[0]=='1','sssssbb')
         this.$router.push(index)
-        this.ps.setCookie('menuIndex',index,1)
+        sessionStorage.setItem('menuIndex',index,1)
       }
     }
   }
