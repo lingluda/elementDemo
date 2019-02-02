@@ -38,7 +38,7 @@
     },
     data() {
       return {
-        indexss: this.$store.state.getCurrentMonth
+        indexss: this.$store.state.getToday
       }
     },
     mounted() {

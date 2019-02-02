@@ -24,15 +24,17 @@ var currentMonth = date.format('yyyy-MM')
 date.setDate(date.getDate()-1)
 var yesterday = date.format('yyyy-MM-dd')
 //七天前
-date.setDate(date.getDate()-7)
+date.setDate(date.getDate()-6)
 var weekAgo = date.format('yyyy-MM-dd')
 //30天前
-date.setDate(date.getDate()-30)
+date.setDate(date.getDate()-23)
 var MonthAgo = date.format('yyyy-MM-dd')
 //上个月
 var LastMonth = year + "-" + month
 //上个月最后一天
 var LastMonthEndDay = year + "-" + month+"-"+fullDate
+//上个月第一天
+var LastMonthFirstDay = year + "-" + month+"-01"
 export default new vuex.Store({
   state:{
     getToday:today,
@@ -42,5 +44,6 @@ export default new vuex.Store({
     getMonthAgo:MonthAgo,
     getLastMonth:LastMonth,
     getLastMonthEndDay:LastMonthEndDay,
+    getLastMonthFirstDay:LastMonthFirstDay,
   }
 })
