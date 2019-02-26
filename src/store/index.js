@@ -19,6 +19,7 @@ var myDate = new Date(year, month, 0);
 var fullDate = myDate.getDate()
 //今天
 var today = date.format('yyyy-MM-dd')
+var todays = date.format('yyyy-MM-dd hh:mm:ss')
 var currentMonth = date.format('yyyy-MM')
 //昨天
 date.setDate(date.getDate()-1)
@@ -37,7 +38,9 @@ var LastMonthEndDay = year + "-" + month+"-"+fullDate
 var LastMonthFirstDay = year + "-" + month+"-01"
 export default new vuex.Store({
   state:{
+    getCity: JSON.parse(localStorage.getItem('cityData')),
     getToday:today,
+    getTodays:todays,
     getCurrentMonth:currentMonth,
     getYesterday:yesterday,
     getWeekAgo:weekAgo,
@@ -45,5 +48,18 @@ export default new vuex.Store({
     getLastMonth:LastMonth,
     getLastMonthEndDay:LastMonthEndDay,
     getLastMonthFirstDay:LastMonthFirstDay,
+    getColor:[
+      "#006EFF",
+      "#29CC85",
+      "#ffbb00",
+      "#ff584c",
+      "#9741d9",
+      "#1fc0cc",
+      "#7ff936",
+      "#ff9c19",
+      "#e63984",
+      "#655ce6",
+      "#47cc50",
+    ],
   }
 })

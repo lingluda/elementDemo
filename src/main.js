@@ -7,6 +7,12 @@ import 'element-ui/lib/theme-chalk/index.css';
 import router from './router'
 import store from '../src/store/index.js'
 import ps from './utils/ps'
+// 引入echarts
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+// 封装echarts
+import myEcharts from "./libs/echarts/index.js"
+Vue.prototype.echart = myEcharts;
 //适配ie
 require("babel-polyfill"); //es5
 //import "babel-polyfill"; //es6
@@ -14,9 +20,7 @@ require("babel-polyfill"); //es5
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.prototype.ps = ps
-// 封装echarts
-import myEcharts from "./libs/echarts/index.js"
-Vue.prototype.echart = myEcharts;
+
 
 
 /* eslint-disable no-new */

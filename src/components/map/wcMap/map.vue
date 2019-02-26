@@ -66,7 +66,7 @@
               }
             },
             zoom: 1.1,
-            aspectScale: 1.2,
+            aspectScale: 1,
             itemStyle: {
               normal: {
                 areaColor: '#f2f2f2',

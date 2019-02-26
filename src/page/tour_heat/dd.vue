@@ -1,13 +1,23 @@
 <template>
-<div>
-  dd
-</div>
+  <div>
+    <iframe name="refreshAlarm" frameborder="0" scrolling="auto" style="width: 100%;height: 100%"></iframe>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "dd"
+  export default {
+    data(){
+      return{
+
+      }
+    },
+    mounted(){
+      document.getElementsByName("refreshAlarm")[0].src="//www.baidu.com/";
+    },
+    methods:{
+
     }
+  }
 </script>
 
 <style scoped>

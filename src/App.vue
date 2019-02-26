@@ -13,9 +13,7 @@
     },
     mounted(){
       let loading = document.getElementById('Loading')
-      if (loading!= null){
-        document.body.removeChild(loading)
-      }
+      if (loading!= null){document.body.removeChild(loading)}
     },
     methods: {
 

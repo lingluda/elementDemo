@@ -195,7 +195,7 @@
       this.initMap()
     },
     methods: {
-      init () {
+     /* init () {
         this.timelines = []
         // http.get('bi/get_scenic_tourist_heat_dist',{city_id:this.city,date:this.date,scenic:this.scenic,min:this.power}).then(resp=>{
         this.ps.post('func/get_scenic_tourist_heat_dist', {
@@ -211,7 +211,7 @@
           }
           this.initMap()
         })
-      },
+      },*/
       initMap () {
         var map = new qq.maps.Map(document.getElementById('map-canvas'), {
           zoom: 16,
@@ -295,9 +295,27 @@
         }, true)
         let self = this
         chart.on('timelinechanged', function (timeLineIndex) {
+          console.log(parseInt(timeLineIndex.currentIndex))
           // 设置 每个series里的xAxis里的值
           self.arrIndex = parseInt(timeLineIndex.currentIndex)
-          heatmap.setData({max: heatValueMax, data: self.testData[self.arrIndex].points})
+            if(self.arrIndex%2==0){
+              heatmap = new QQMapPlugin.HeatmapOverlay(map,
+                {
+                  //点半径，设置为1即可
+                  "radius": 1,
+                  //热力图最大透明度
+                  "maxOpacity": 0.8,
+                  //是否在每一屏都开启重新计算，如果为true则每一屏都会有一个红点
+                  "useLocalExtrema": true,
+                  //设置大小字段
+                  "valueField": 'count'
+                }
+              );
+              heatmap.setData({max: heatValueMax, data: self.testData[0].points})
+            }else {
+              heatmap.setData({max: 100, data: []});
+              heatmap.destroy();
+            }
         })
       },
     },

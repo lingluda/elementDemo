@@ -115,7 +115,7 @@
         let dom = this.$refs.echart
         let opt = {
           title: {
-            text: '  龘龘在此祝大家\n2019年🐖年快乐!',
+            text: '  龘爷在此祝厚哥\n本命🐖年顺利嫁出去!',
             top: 20,
             left: 'center',
             textStyle: {

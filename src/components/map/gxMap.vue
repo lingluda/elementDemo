@@ -5,105 +5,140 @@
 </template>
 
 <script>
-  import {img1, img2, img3, img4, img5, img6, img7, img8, img10} from './wcMap/base64-img.js'
+  import {img1, img2, img3, img4, img5, img6, img7, img8, img9, img10} from './wcMap/base64-img.js'
+  var geoCoordMap = {
+    '苏州': [120.62, 31.32],
+    '西宁': [105.35991668701172, 41.09057550119951],
+  }
+  var data = [
+    {name: '苏州', value: 522},
+    {name: '西宁', value: 222}
+  ];
+  var convertData = function (data) {
+    var res = [];
+    for (var i = 0; i < data.length; i++) {
+      var geoCoord = geoCoordMap[data[i].name];
+      if (geoCoord) {
+        res.push({
+          name: data[i].name,
+          value: geoCoord.concat(data[i].value)
+        });
+      }
+    }
+    return res;
+  };
+  var findIndex = function (name) {
+    return Object.keys(geoCoordMap).findIndex((item, index) => {
+      return item === name
+    })
+  }
   export default {
     name: "gxMap",
+
     mounted() {
+
       let geoJson = require('./js/china')
+      let ig1 = 'image://' + require('../../assets/imgMap/red-small.png')
+      let ig2 = require('../../assets/imgMap/red-small.png')
       echarts.registerMap('china', geoJson);
-      var geoCoordMap = {
-        '苏州': [120.62, 31.32],
-        '西宁': [105.35991668701172, 41.09057550119951],
-      }
-      var data = [
-        {name:'苏州',value:522},
-        {name:'西宁',value:222}
-      ];
-      var convertData = function (data) {
-        var res = [];
-        for (var i = 0; i < data.length; i++) {
-          var geoCoord = geoCoordMap[data[i].name];
-          if (geoCoord) {
-            res.push({
-              name: data[i].name,
-              value: geoCoord.concat(data[i].value)
-            });
-          }
-        }
-        return res;
-      };
       let dom = this.$refs.echart
       let opt = {
         backgroundColor: '#fff',
-        geo: [
-          {
-            map: "china",
-            z: 1,
-            aspectScale: 0.75, //地图的长宽比
-            zoom: 0.9,
-            itemStyle: {
-              areaColor: 'transparent',
-              borderColor: '#fff',
-              borderWidth: 1
-            },
-            emphasis: {
-              itemStyle: {
-                borderColor: '#fff',
-                borderWidth: 1,
-
-              },
-              label: {
-                show: false
-              }
-            }
-          },
-          {
-            map: "china",
-            z: 11,
-            aspectScale: 0.75, //地图的长宽比
-            zoom: 0.9,
-            itemStyle: {
-              areaColor: '#f2f2f2',
-              // areaColor:'transparent',
-              borderColor: '#fff',
-              borderWidth: 1
-            },
-            label: {
-              show: false
-            },
-            emphasis: {
-              itemStyle: {
-                areaColor: '#f2f2f2',
-                borderColor:  'rgba(0, 0, 0, 0.3)',
-                borderWidth: 1,
-              },
-              label: {
-                show: false
+        legend: {
+          // orient: 'vertical',
+          // left: 'left',
+          bottom: 0,
+          itemWidth: 16,
+          itemHeight: 16,
+          data: [{name: '散点', icon: ig1}, {name: '旱厕', icon: img4}, {name: '故障厕所', icon: img6}],
+        },
+        tooltip: {
+          trigger: 'item',
+          formatter: function (params) {
+            if (typeof(params.value)[2] == "undefined") {
+              var index = findIndex(params.name)
+                var str = ""
+                  str = '<div style="line-height:30px">'+data[0].name+'</div>' +
+                    '<div><img src="'+ig2+'">'+data[0].value+'</div>'
+              console.log(index)
+                  return str
+          }else {
+              for (let i=0;i<data.length;i++){
+                var str = ""
+                if (params.name==data[i].name) {
+                  str = '<div style="line-height:30px">'+data[i].name+'</div>' +
+                    '<div><img src="'+ig2+'">'+data[i].value+'</div>'
+                  return str
+                }
               }
             }
           }
-        ],
-        series: [
-          {
-            type: 'scatter',
-            //name: "工业",
-            mapType: 'china',
-            coordinateSystem: 'geo',
-            symbolSize: function(val) {
-              return Math.max(val[2] / 20, 8);
-            },
-            geoIndex: 1,
-            z: 18,
-            symbol: img6,
-            data: convertData(data),
-            symbolKeepAspect: true,
-            itemStyle: {
-              opacity: 1
+        },
+        geo: {
+          show: true,
+          map: 'china',
+          label: {
+            /* normal: {
+               show: false
+             },*/
+            emphasis: {
+              show: false,
             }
           },
+          roam: true,
+          itemStyle: {
+            normal: {
+              areaColor: '#f2f2f2',
+              borderColor: 'white',
+              borderWidth: 2,
+            },
+            emphasis: {
+              areaColor: '#f2f2f2',
+            }
+          }
+        },
+        series: [
+          {
+            name: '散点',
+            type: 'scatter',
+            coordinateSystem: 'geo',
+            data: convertData(data),
+            symbolSize: function (val) {
+              return val[2] / 10;
+            },
+            symbol: ig1,
+            label: {
+              normal: {
+                formatter: '{b}',
+                position: 'right',
+                show: true
+              },
+              emphasis: {
+                show: true
+              }
+            },
+            itemStyle: {
+              normal: {
+                color: '#05C3F9'
+              }
+            }
+          },
+          {
+            type: 'map',
+            map: 'china',
+            geoIndex: 0,
+            showLegendSymbol: true, // 存在legend时显示
+            roam: false,
+            data: data,
+            zoom: 1,
+            aspectScale: 1,
+          }
         ]
       }
       this.echart(dom, opt)
+    },
+    methods:{
+
     }
   }
 </script>

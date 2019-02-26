@@ -26,11 +26,19 @@ let router = new Router({
           }
         },
         {
-          path: '/dd',
-          name: 'dd',
+          path: '/situation',
+          name: 'situation',
           meta: {requireAuth: true},
           component: resolve => {
             require(['@/page/tour_heat/dd.vue'], resolve)
+          }
+        },
+        {
+          path: '/role',
+          name: 'role',
+          meta: {requireAuth: true},
+          component: resolve => {
+            require(['@/page/sysManage/role.vue'], resolve)
           }
         },
       ]
