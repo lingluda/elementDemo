@@ -55,10 +55,7 @@ export const geoCoordMap2 = {
 }
 
 export const dataList = [
-  {
-    name: '昆明市',
-    value: 219
-  },
+
   {
     name: '曲靖市',
     value: 339

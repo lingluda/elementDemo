@@ -1,7 +1,7 @@
 import '../utils/dateformat'
 import vue from 'vue'
 import vuex from 'vuex'
-
+import ps from '../utils/ps'
 vue.use(vuex)
 
 var date = new Date()
@@ -38,7 +38,8 @@ var LastMonthEndDay = year + "-" + month+"-"+fullDate
 var LastMonthFirstDay = year + "-" + month+"-01"
 export default new vuex.Store({
   state:{
-    getCity: JSON.parse(localStorage.getItem('cityData')),
+    init:true,
+    getCity: [{value:undefined,label:'全省'}],
     getToday:today,
     getTodays:todays,
     getCurrentMonth:currentMonth,
@@ -61,5 +62,25 @@ export default new vuex.Store({
       "#655ce6",
       "#47cc50",
     ],
+  },
+  getters:{
+    getCityList(state) {
+      return state.getCity
+    },
+  },
+  mutations: {
+    setCityList: (state, cityList) => {
+      state.getCity = cityList
+    },
+  },
+  actions: {
+    init({state,commit,dispatch}){
+      ps.post('get_all_city', {}, res => {
+        var cityList = res.map(item => {return {value: item.id, label: item.name}})
+        cityList.unshift({ value: undefined, label: '全省' },)
+        dispatch('setCityList',true)
+        commit('setCityList', cityList)
+      })
+  }
   }
 })

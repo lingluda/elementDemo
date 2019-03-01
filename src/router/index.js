@@ -59,10 +59,9 @@ router.afterEach((to, from, next) => {
 })
 // 拦截登录，token验证
 router.beforeEach((to, from, next) => {
-  console.log(typeof to.meta.requireAuth)
+  //console.log(typeof to.meta.requireAuth)
   if (to.meta.requireAuth) {
-    console.log('typeof_token',typeof ps.getCookie('token'))
-    console.log('token::',ps.getCookie('token'))
+    //console.log('value of token',ps.getCookie('token'))
     if (ps.getCookie('token')) {
       next()
     } else {

@@ -34,9 +34,7 @@
   }
   export default {
     name: "gxMap",
-
     mounted() {
-
       let geoJson = require('./js/china')
       let ig1 = 'image://' + require('../../assets/imgMap/red-small.png')
       let ig2 = require('../../assets/imgMap/red-small.png')
@@ -60,7 +58,8 @@
                 var str = ""
                   str = '<div style="line-height:30px">'+data[0].name+'</div>' +
                     '<div><img src="'+ig2+'">'+data[0].value+'</div>'
-              console.log(index)
+                  console.log(params.name)
+                  console.log(index)
                   return str
           }else {
               for (let i=0;i<data.length;i++){
@@ -68,6 +67,7 @@
                 if (params.name==data[i].name) {
                   str = '<div style="line-height:30px">'+data[i].name+'</div>' +
                     '<div><img src="'+ig2+'">'+data[i].value+'</div>'
+                  console.log(params.name)
                   return str
                 }
               }
@@ -127,12 +127,32 @@
             type: 'map',
             map: 'china',
             geoIndex: 0,
-            showLegendSymbol: true, // 存在legend时显示
-            roam: false,
-            data: data,
-            zoom: 1,
-            aspectScale: 1,
-          }
+            aspectScale: 0.75, //长宽比
+            showLegendSymbol: false, // 存在legend时显示
+            label: {
+              normal: {
+                show: true
+              },
+              emphasis: {
+                show: false,
+                textStyle: {
+                  color: 'white'
+                }
+              }
+            },
+            roam: true,
+            itemStyle: {
+              normal: {
+                areaColor: '#d1e1e8',
+                borderColor: '#3B5077',
+              },
+              emphasis: {
+                areaColor: '#2B91B7'
+              }
+            },
+            animation: false,
+            data: data
+          },
         ]
       }
       this.echart(dom, opt)

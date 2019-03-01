@@ -37,6 +37,7 @@
           tooltip: {
             trigger: 'item',
             formatter: function (params) {
+              console.log(params.name)
               var str = ""
               // console.log(params)
               var img2 = `<img src="${img7}"></img>`
