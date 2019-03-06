@@ -78,7 +78,6 @@ export default new vuex.Store({
       ps.post('get_all_city', {}, res => {
         var cityList = res.map(item => {return {value: item.id, label: item.name}})
         cityList.unshift({ value: undefined, label: '全省' },)
-        dispatch('setCityList',true)
         commit('setCityList', cityList)
       })
   }

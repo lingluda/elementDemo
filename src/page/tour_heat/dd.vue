@@ -1,6 +1,6 @@
 <template>
   <div>
-    <iframe name="refreshAlarm" frameborder="0" scrolling="auto" style="width: 100%;height: 100%"></iframe>
+    <iframe name="refreshAlarm" frameborder="0" scrolling="auto" style="width: 100%;height: 90%"></iframe>
   </div>
 </template>
 

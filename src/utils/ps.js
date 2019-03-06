@@ -49,6 +49,21 @@ ps.delCookie = function(name){
   d.setTime(d.getTime() - 1);
   window.document.cookie = name + "=" + '' + ";path=/;expires=" + d.toGMTString();
 }
+//获取url？全部参数
+ps.getAllParams = function(prm){
+  var args = getUrlAllParams();
+  //如果要查找参数key:
+  if (args[prm] != undefined) {
+    //如果要查找参数key:
+    return args[prm];
+  } else {
+    return "";
+  }
+}
+//获取URL的路由
+ps.getRouter = function(){
+   return window.location.href.split("#/")[1];
+}
 axios.defaults.baseURL = 'https://tglpt.ybsjyyn.com/zhgl/im/'
 export default ps
 function encodeUrl (obj) {
@@ -65,4 +80,20 @@ function encodeUrl (obj) {
     })
   })(obj)
   return url.substring(0, url.length - 1)
+}
+function getUrlAllParams() {
+  var args = new Object();
+  var query = window.location.href; //获取查询串
+  console.log(window.location.href)
+  console.log(window.location.search)
+  query=query.substring(query.lastIndexOf('?')+1)
+  var pairs = query.split("&"); //在逗号处断开
+  for (var i = 0; i < pairs.length; i++) {
+    var pos = pairs[i].indexOf('='); //查找name=value
+    if (pos == -1) continue; //如果没有找到就跳过
+    var argname = pairs[i].substring(0, pos); //提取name
+    var value = pairs[i].substring(pos + 1); //提取value
+    args[argname] = unescape(value); //存为属性
+  }
+  return args;
 }

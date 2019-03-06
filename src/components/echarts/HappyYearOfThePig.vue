@@ -1,6 +1,6 @@
 <template>
     <div>
-      <div ref="echart" style="height: 500px"></div>
+      <div ref="echart" style="height: 100%;width: 100%"></div>
     </div>
 </template>
 

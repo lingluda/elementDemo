@@ -1,5 +1,6 @@
 <template>
   <div>
+    <usertree style="height: 200px"></usertree>
     <el-row>
       <el-col :span="12">
         <!--对话框开始-->
@@ -57,6 +58,7 @@
       <!--树形菜单-->
       <el-col :span="12">
         <div style="margin-left: 40%">
+
           <el-tree
             :data="data2"
             show-checkbox
@@ -76,6 +78,9 @@
 
 <script>
     export default {
+      components:{
+        usertree: resolve => require(['./userTree'],resolve),
+      },
       data(){
         return{
           selectTree:[],
