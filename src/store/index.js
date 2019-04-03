@@ -38,8 +38,8 @@ var LastMonthEndDay = year + "-" + month+"-"+fullDate
 var LastMonthFirstDay = year + "-" + month+"-01"
 export default new vuex.Store({
   state:{
-    init:true,
-    getCity: [{value:undefined,label:'全省'}],
+    init: false,
+    getCity: null,
     getToday:today,
     getTodays:todays,
     getCurrentMonth:currentMonth,

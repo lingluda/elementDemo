@@ -158,6 +158,7 @@
       }
     },
     mounted(){
+      this.$store.dispatch('init')
       this.get_all_city()
     }
   }

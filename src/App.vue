@@ -14,7 +14,6 @@
     mounted(){
       let loading = document.getElementById('Loading')
       if (loading!= null){document.body.removeChild(loading)}
-      this.$store.dispatch('init')
     },
     methods: {
 

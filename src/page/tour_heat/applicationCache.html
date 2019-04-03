@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" manifest="applicationCacheEvent.manifest">
+<head>
+    <meta charset="UTF-8">
+    <title>applocationCache</title>
+</head>
+<script>
+  function init() {
+    var msg = document.getElementById('msg')
+    applicationCache.addEventListener('checking',function () {
+      msg.innerHTML += 'checking<br>';
+    },true)
+    applicationCache.addEventListener('noupdate',function () {
+      msg.innerHTML += 'noupdate<br>';
+    },true)
+    applicationCache.addEventListener('downloading',function () {
+      msg.innerHTML += 'downloading<br>';
+    },true)
+    applicationCache.addEventListener('progress',function () {
+      msg.innerHTML += 'progress<br>';
+    },true)
+    applicationCache.addEventListener('updateready',function () {
+      msg.innerHTML += 'updateready<br>';
+    },true)
+  }
+</script>
+<body onload="init()">
+  <h1>applicationCache</h1>
+  <p id="msg"></p>
+</body>
+</html>
