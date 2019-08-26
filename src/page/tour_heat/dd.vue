@@ -6,17 +6,13 @@
 
 <script>
   export default {
-    data(){
-      return{
-
-      }
+    data() {
+      return {}
     },
-    mounted(){
-      document.getElementsByName("refreshAlarm")[0].src="//www.baidu.com/";
+    mounted() {
+      document.getElementsByName("refreshAlarm")[0].src = "//www.baidu.com/";
     },
-    methods:{
-
-    }
+    methods: {}
   }
 </script>
 

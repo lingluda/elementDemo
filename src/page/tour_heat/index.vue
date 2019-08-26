@@ -31,7 +31,7 @@
     <!-- 分页控件 -->
     <!--<pagination :total="total" :pageSize.sync="pageSize" :currentPage.sync="currentPage"></pagination>-->
     <wcMap style="height: 500px;"></wcMap>
-   <!--中国地图-->
+    <!--中国地图-->
     <gxMap style="height: 500px;"></gxMap>
     <!--腾讯热力图-->
     <!--<TXhotMap style="height: 500px;"></TXhotMap>-->
@@ -62,17 +62,17 @@
     data() {
       return {
         topData: [
-          { name: '景区停车场数量', value: undefined },//travelToilet
-          { name: '景区周边停车场数量', value: undefined },//smartToilet
+          {name: '景区停车场数量', value: undefined},//travelToilet
+          {name: '景区周边停车场数量', value: undefined},//smartToilet
           // { name: '停车场厕所', value: undefined },//normaToilet
-          { name: '临时停车场', value: undefined },//notAGradeToilet
-          { name: '智慧停车场', value: undefined },//waterRushToilet
-          { name: '停车位总数', value: undefined },//droughtToilet
-          { name: '剩余停车位', value: undefined },//doToilet
-          { name: '出入口拥堵', value: undefined },//palnDoToilet
-          { name: '异常停车场', value: undefined }
+          {name: '临时停车场', value: undefined},//notAGradeToilet
+          {name: '智慧停车场', value: undefined},//waterRushToilet
+          {name: '停车位总数', value: undefined},//droughtToilet
+          {name: '剩余停车位', value: undefined},//doToilet
+          {name: '出入口拥堵', value: undefined},//palnDoToilet
+          {name: '异常停车场', value: undefined}
         ],
-        cityList:JSON.parse(this.ps.getCookie('cityData')),
+        cityList: JSON.parse(this.ps.getCookie('cityData')),
         indexss: this.$store.state.getCity
       }
     },
@@ -80,69 +80,69 @@
       console.log(this.ps.getRouter())
       console.log(this.ps.getAllParams('name'))
     },
-    methods:{
-      siteClick(params){
+    methods: {
+      siteClick(params) {
         console.log(params)
       },
-      searchd(v){
+      searchd(v) {
         //this.get_total_holiday(null,null,v.date)
         console.log(v)
       },
       //5.8节假日游客数量
-      timeClick (endTime, startTime) {
-         console.log(endTime,startTime)
+      timeClick(endTime, startTime) {
+        console.log(endTime, startTime)
       },
     }
   }
 </script>
 
 <style lang="less" scoped>
- .main{
-   &__top{
-     &-data {
-       overflow: hidden;
-       display: flex;
-       // justify-content: space-between;
-       margin-top: 10px;
-       margin-bottom: 12px;
-       background-color: white;
-       padding: 0 20px;
-       &-item {
-         flex: 1;
-         box-sizing: border-box;
-         margin: 27px 0 30px;
-         padding-left: 20px;
-         padding-right: 20px;
-         // min-width: 146px;
-         color: black;
-         border-left: 1px solid #dcdcdc;
-         display: flex;
-         flex-direction: column;
-         justify-content: space-between;
-         &:first-child {
-           border-left-width: 0;
-           padding-left: 0;
-         }
-         &:last-child {
-           padding-right: 0;
-         }
-         > div:first-child {
-           font-size: 14px;
-           font-weight: 800;
-         }
-         > div:nth-child(2) {
-           font-size: 32px;
-           font-weight: bold;
-           // &::after {
-           //   display: inline-block;
-           //   content: '个';
-           //   margin-left: 5px;
-           //   font-size: 14px;
-           //   font-weight: bold;
-           // }
-         }
-       }
-     }
-   }
- }
+  .main {
+    &__top {
+      &-data {
+        overflow: hidden;
+        display: flex;
+        // justify-content: space-between;
+        margin-top: 10px;
+        margin-bottom: 12px;
+        background-color: white;
+        padding: 0 20px;
+        &-item {
+          flex: 1;
+          box-sizing: border-box;
+          margin: 27px 0 30px;
+          padding-left: 20px;
+          padding-right: 20px;
+          // min-width: 146px;
+          color: black;
+          border-left: 1px solid #dcdcdc;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          &:first-child {
+            border-left-width: 0;
+            padding-left: 0;
+          }
+          &:last-child {
+            padding-right: 0;
+          }
+          > div:first-child {
+            font-size: 14px;
+            font-weight: 800;
+          }
+          > div:nth-child(2) {
+            font-size: 32px;
+            font-weight: bold;
+            // &::after {
+            //   display: inline-block;
+            //   content: '个';
+            //   margin-left: 5px;
+            //   font-size: 14px;
+            //   font-weight: bold;
+            // }
+          }
+        }
+      }
+    }
+  }
 </style>

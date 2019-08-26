@@ -43,21 +43,21 @@
 <script>
   export default {
     name: "login",
-    data(){
-      return{
-        inpuType:'password',
-        code:'',
-        checkCode:'',
-        picLyanzhengma:'',
-        loginForm:{
-          name:'',
-          password:'',
-          code:''
+    data() {
+      return {
+        inpuType: 'password',
+        code: '',
+        checkCode: '',
+        picLyanzhengma: '',
+        loginForm: {
+          name: '',
+          password: '',
+          code: ''
         },
         rules: {
-          name: [{ required: true, message: '请输入用户名', trigger: 'blur' },],
-          password: [{ required: true, message: '请输入密码', trigger: 'blur' },],
-          code: [{ required: true, message: '请输入验证码', trigger: 'blur' },],
+          name: [{required: true, message: '请输入用户名', trigger: 'blur'},],
+          password: [{required: true, message: '请输入密码', trigger: 'blur'},],
+          code: [{required: true, message: '请输入验证码', trigger: 'blur'},],
         }
       }
     },
@@ -65,13 +65,13 @@
       this.createCode()
     },
     methods: {
-      showPW(){
-        this.inpuType='text'
+      showPW() {
+        this.inpuType = 'text'
       },
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
-          if (valid && this.loginForm.code==this.code) {
-            localStorage.setItem('token',111)
+          if (valid && this.loginForm.code == this.code) {
+            localStorage.setItem('token', 111)
             /*this.ps.post('login',{uname:this.loginForm.name,pwd:this.loginForm.password},res=>{
               console.log(res)
               //localStorage.setItem('token',res.data[0].token_x)
@@ -119,23 +119,25 @@
 </script>
 
 <style lang="less" scoped>
-  .loginForm{
+  .loginForm {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
   }
-  .demo-ruleForm{
+
+  .demo-ruleForm {
     width: 300px;
     background: yellow;
     padding: 10px;
   }
-  .verification{
+
+  .verification {
     border: 0px solid #409EFF;
     //border-radius: 3px;
     background: #fff;
-    width:100%;
-    letter-spacing:14px;
+    width: 100%;
+    letter-spacing: 14px;
     font-weight: 600;
     font-size: 22px;
     color: rgba(0, 110, 255, 1);

@@ -77,78 +77,78 @@
 </template>
 
 <script>
-    export default {
-      components:{
-        usertree: resolve => require(['./userTree'],resolve),
-      },
-      data(){
-        return{
-          selectTree:[],
-          data2:[],
-          tableData:[],
-          dialogFormVisible:false,
-          total:'',
-          pageSize:'',
-          currentPage:1,
-          form:{
-            code:'',
-            name:'',
-            islock:'0',
-            remark:'',
-          },
-          searchname:'',
-          formLabelWidth: '120px'
-        }
-      },
-      mounted(){
-        //角色初始化
-        this.initRole()
-        //菜单初始化
-        this.initFunc()
+  export default {
+    components: {
+      usertree: resolve => require(['./userTree'], resolve),
+    },
+    data() {
+      return {
+        selectTree: [],
+        data2: [],
+        tableData: [],
+        dialogFormVisible: false,
+        total: '',
+        pageSize: '',
+        currentPage: 1,
+        form: {
+          code: '',
+          name: '',
+          islock: '0',
+          remark: '',
+        },
+        searchname: '',
+        formLabelWidth: '120px'
+      }
+    },
+    mounted() {
+      //角色初始化
+      this.initRole()
+      //菜单初始化
+      this.initFunc()
 
+    },
+    methods: {
+      //删除角色
+      delrole(v) {
+        this.ps.post('user/dele', {name: v.name}, res => {
+          this.initRole()
+        })
       },
-      methods:{
-        //删除角色
-        delrole(v){
-          this.ps.post('user/dele',{name:v.name},res=>{
-            this.initRole()
-          })
-        },
-        addrole(){
-          this.dialogFormVisible=true
-        },
-        confire(){
-          this.form.key='role'
-          console.log(this.form)
-          this.ps.post('user/add',this.form,res=>{
-            this.initRole()
-            this.form={}
-          })
-          this.dialogFormVisible = false
-        },
-        //角色初始化
-        initRole(){
-          this.ps.post('user/findRole',{},res=>{
-            console.log(res)
-            this.tableData=res
-          })
-        },
-        //菜单初始化
-        initFunc(){
-          this.ps.post('user/find',{"key":'menuList'},res=>{
-            console.log(res[0].menuList)
-            this.data2 = res[0].menuList
-          })
-        },
-        //选中列表
-        openFunc(val){
-          console.log(val.code)
-          this.ps.post('user/find',{"key":val.code},res=>{
-            this.selectTree=[5,6]
-          })
-        }
+      addrole() {
+        this.dialogFormVisible = true
+      },
+      confire() {
+        this.form.key = 'role'
+        console.log(this.form)
+        this.ps.post('user/add', this.form, res => {
+          this.initRole()
+          this.form = {}
+        })
+        this.dialogFormVisible = false
+      },
+      //角色初始化
+      initRole() {
+        this.ps.post('user/findRole', {}, res => {
+          console.log(res)
+          this.tableData = res
+        })
+      },
+      //菜单初始化
+      initFunc() {
+        this.ps.post('user/find', {"key": 'menuList'}, res => {
+          console.log(res[0].menuList)
+          this.data2 = res[0].menuList
+        })
+      },
+      //选中列表
+      openFunc(val) {
+        console.log(val.code)
+        this.ps.post('user/find', {"key": val.code}, res => {
+          this.selectTree = [5, 6]
+        })
       }
     }
+  }
 </script>
 
 <style scoped>

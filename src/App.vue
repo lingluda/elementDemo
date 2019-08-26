@@ -7,17 +7,15 @@
 <script>
   export default {
     data() {
-      return{
-
+      return {}
+    },
+    mounted() {
+      let loading = document.getElementById('Loading')
+      if (loading != null) {
+        document.body.removeChild(loading)
       }
     },
-    mounted(){
-      let loading = document.getElementById('Loading')
-      if (loading!= null){document.body.removeChild(loading)}
-    },
-    methods: {
-
-    }
+    methods: {}
   }
 </script>
 
@@ -26,13 +24,16 @@
     margin: 0 !important;
     padding: 0 !important;
   }
-  .el-input__inner{
-    border-radius:0 !important;
+
+  .el-input__inner {
+    border-radius: 0 !important;
   }
-  .el-menu{
+
+  .el-menu {
     border: 0 !important;
   }
-  .el-header{
+
+  .el-header {
     padding: 0px 20px 0 7px !important;
   }
 </style>

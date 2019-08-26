@@ -38,14 +38,18 @@
           </el-menu-item>
         </el-submenu>
       </el-menu>
-      <img src="../assets/imgs/tabRight.png" v-if="isCollapse" style="position: absolute;margin: 88vh 14px 0px;background: #4d4d4d;border-radius: 20px" @click="push(false)"></img>
-      <img src="../assets/imgs/tabLeft.png" v-if="!isCollapse" style="position: absolute;margin: 88vh 14px 0px;background: #4d4d4d;border-radius: 20px" @click="push(true)"></img>
+      <img src="../assets/imgs/tabRight.png" v-if="isCollapse"
+           style="position: absolute;margin: 88vh 14px 0px;background: #4d4d4d;border-radius: 20px"
+           @click="push(false)"></img>
+      <img src="../assets/imgs/tabLeft.png" v-if="!isCollapse"
+           style="position: absolute;margin: 88vh 14px 0px;background: #4d4d4d;border-radius: 20px"
+           @click="push(true)"></img>
 
       <el-main>
         <div class="texts">十二
         </div>
         <div>
-        <router-view style="background: #f2f2f2;height: calc(100vh - 105px);overflow-y: scroll;"/>
+          <router-view style="background: #f2f2f2;height: calc(100vh - 105px);overflow-y: scroll;"/>
         </div>
       </el-main>
     </el-container>
@@ -126,9 +130,41 @@
     },
     methods: {
       //2.1.1获取所有城市
-      get_all_city(){
-        let cc =[{"value": undefined, "label": "全省"},{"code":"530100","label":"昆明市","value":"385"},{"code":"530500","label":"保山市","value":"379"},{"code":"532300","label":"楚雄州","value":"380"},{"code":"532900","label":"大理州","value":"381"},{"code":"533100","label":"德宏州","value":"382"},{"code":"533400","label":"迪庆州","value":"383"},{"code":"532500","label":"红河州","value":"384"},{"code":"530700","label":"丽江市","value":"386"},{"code":"530900","label":"临沧市","value":"387"},{"code":"533300","label":"怒江州","value":"388"},{"code":"530800","label":"普洱市","value":"389"},{"code":"530300","label":"曲靖市","value":"390"},{"code":"532600","label":"文山州","value":"391"},{"code":"532800","label":"西双版纳州","value":"392"},{"code":"530400","label":"玉溪市","value":"393"},{"code":"530600","label":"昭通市","value":"394"}]
-        this.ps.setCookie('cityData',JSON.stringify(cc),1)
+      get_all_city() {
+        let cc = [{"value": undefined, "label": "全省"}, {
+          "code": "530100",
+          "label": "昆明市",
+          "value": "385"
+        }, {"code": "530500", "label": "保山市", "value": "379"}, {
+          "code": "532300",
+          "label": "楚雄州",
+          "value": "380"
+        }, {"code": "532900", "label": "大理州", "value": "381"}, {
+          "code": "533100",
+          "label": "德宏州",
+          "value": "382"
+        }, {"code": "533400", "label": "迪庆州", "value": "383"}, {
+          "code": "532500",
+          "label": "红河州",
+          "value": "384"
+        }, {"code": "530700", "label": "丽江市", "value": "386"}, {
+          "code": "530900",
+          "label": "临沧市",
+          "value": "387"
+        }, {"code": "533300", "label": "怒江州", "value": "388"}, {
+          "code": "530800",
+          "label": "普洱市",
+          "value": "389"
+        }, {"code": "530300", "label": "曲靖市", "value": "390"}, {
+          "code": "532600",
+          "label": "文山州",
+          "value": "391"
+        }, {"code": "532800", "label": "西双版纳州", "value": "392"}, {
+          "code": "530400",
+          "label": "玉溪市",
+          "value": "393"
+        }, {"code": "530600", "label": "昭通市", "value": "394"}]
+        this.ps.setCookie('cityData', JSON.stringify(cc), 1)
         /* this.ps.post('get_all_city', {}, res => {
            let cc = []
            cc = res.map(item => {return {value: item.id, label: item.name}})
@@ -157,8 +193,9 @@
         localStorage.setItem('menuIndex', index, 1)
       }
     },
-    mounted(){
-      this.$store.dispatch('init')
+    mounted() {
+      //vuex初始化
+      //this.$store.dispatch('init')
       this.get_all_city()
     }
   }

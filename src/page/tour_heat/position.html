@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
   function init() {
     navigator.geolocation.getCurrentPosition(function (position) {
       var coodrs = position.coords;
-      var latlang = new google.maps.LatLng(coodrs.latitude,coodrs.longitude);
+      var latlang = new google.maps.LatLng(coodrs.latitude, coodrs.longitude);
       var myOptions = {
-        zoom:14,
-        center:latlang,
+        zoom: 14,
+        center: latlang,
         // mapTypeId:google.maps.mapTypeId.ROADMAP
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       var map1;
-      map1 = new google.maps.Map(document.getElementById('map'),myOptions)
-      var marker= new google.maps.Maker({
-        position:latlang,
-        map:map1
+      map1 = new google.maps.Map(document.getElementById('map'), myOptions)
+      var marker = new google.maps.Maker({
+        position: latlang,
+        map: map1
       })
       var infowindow = new google.maps.InfoWindow({
-        content:'当前位置'
+        content: '当前位置'
       })
-      infowindow.open(map1,marker)
+      infowindow.open(map1, marker)
     })
   }
 </script>
 <body onload="init()">
-  <div id="map" style="width: 100%;height: 400px"></div>
+<div id="map" style="width: 100%;height: 400px"></div>
 </body>
 </html>

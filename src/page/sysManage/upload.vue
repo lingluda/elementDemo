@@ -13,6 +13,7 @@
 
 <script>
   import axios from 'axios'
+
   export default {
     data() {
       return {
@@ -24,7 +25,7 @@
         this.imageUrl = URL.createObjectURL(file.raw);
       },*/
       handleAvatarSuccess(response, file, fileList) {
-        console.log("file::::",file)
+        console.log("file::::", file)
         this.src = file.url;
         this.fd.files.push(file.raw);
       },
@@ -41,11 +42,11 @@
         return isJPG && isLt2M;*/
         let fd = new FormData()
         fd.append('myFile', file)
-        axios.post('http://127.0.0.1/upload', fd,{
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      })
+        axios.post('http://127.0.0.1/upload', fd, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        })
       }
     }
   }
@@ -59,9 +60,11 @@
     position: relative;
     overflow: hidden;
   }
+
   .avatar-uploader .el-upload:hover {
     border-color: #409EFF;
   }
+
   .avatar-uploader-icon {
     font-size: 28px;
     color: #8c939d;
@@ -70,6 +73,7 @@
     line-height: 178px;
     text-align: center;
   }
+
   .avatar {
     width: 178px;
     height: 178px;

@@ -1,14 +1,14 @@
 <template>
-    <el-scrollbar>
-      <el-tree
-        :data="data"
-        :props="defaultProps"
-        accordion
-        show-checkbox
-        :scroll="true"
-        @check-change="handleNodeClick">
-      </el-tree>
-    </el-scrollbar>
+  <el-scrollbar>
+    <el-tree
+      :data="data"
+      :props="defaultProps"
+      accordion
+      show-checkbox
+      :scroll="true"
+      @check-change="handleNodeClick">
+    </el-tree>
+  </el-scrollbar>
 </template>
 
 <script>
@@ -96,7 +96,7 @@
     },
     methods: {
       handleNodeClick(data, checked) {
-        if (data.indexOf('children')){
+        if (data.indexOf('children')) {
           console.log(data, checked);
         }
       }
@@ -105,14 +105,15 @@
 </script>
 
 <style scoped>
-  .tree{
+  .tree {
     overflow-y: scroll;
     overflow-x: scroll;
-    width:80px;
+    width: 80px;
     height: 450px;
   }
+
   .el-tree {
     min-width: 100%;
-    display:inline-block !important;
+    display: inline-block !important;
   }
 </style>
