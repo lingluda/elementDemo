@@ -121,7 +121,7 @@
         ],
         isCollapse: false,
         activeIndex: '1',
-        menuselect: sessionStorage.getItem('menuIndex') || 'index',
+        menuselect: localStorage.getItem('menuIndex') || 'index',
       };
     },
     methods: {
@@ -154,7 +154,7 @@
       select(index, indexPath) {
         //console.log(indexPath[0] == '1', 'sssssbb')
         this.$router.push(index)
-        sessionStorage.setItem('menuIndex', index, 1)
+        localStorage.setItem('menuIndex', index, 1)
       }
     },
     mounted(){

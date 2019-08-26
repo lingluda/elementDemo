@@ -4,10 +4,20 @@ import '../utils/dateformat.js'
 import ElementUI from 'element-ui'
 //import router from '../router'
 
+axios.defaults.timeout = 5000;                        //响应时间
+axios.defaults.headers.post['token_x'] = localStorage.getItem('token')||'1111';        //配置请求头
+// axios.defaults.baseURL = '';   //配置接口地址
+// axios.defaults.baseURL = 'https://tglpt.ybsjyyn.com/zhgl/im/'
+axios.defaults.baseURL = 'http://localhost/'
+
 let ps = {}
 ps.post = function (url,params,callback) {
   axios.post(url,qs.stringify(params)).then(resp => {
-    callback(resp.data.hits)
+    if (resp.data.code==0){
+    callback(resp.data)
+    }else {
+      ElementUI.Message.error(resp.data.msg);
+    }
   })
 }
 ps.posts = function (url,params,callback) {
@@ -64,7 +74,8 @@ ps.getAllParams = function(prm){
 ps.getRouter = function(){
    return window.location.href.split("#/")[1];
 }
-axios.defaults.baseURL = 'https://tglpt.ybsjyyn.com/zhgl/im/'
+
+
 export default ps
 function encodeUrl (obj) {
   let url = ''

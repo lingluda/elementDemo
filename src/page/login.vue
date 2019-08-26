@@ -71,7 +71,18 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid && this.loginForm.code==this.code) {
-            this.ps.setCookie('token',1,1)
+            localStorage.setItem('token',111)
+            /*this.ps.post('login',{uname:this.loginForm.name,pwd:this.loginForm.password},res=>{
+              console.log(res)
+              //localStorage.setItem('token',res.data[0].token_x)
+
+              //console.log('tokenXXXXXXXXXXXXXXXXX',localStorage.getItem('token'))
+              /!*this.ps.post('top10',{name:'router'},res=>{
+                console.log(res)
+              })*!/
+
+
+            })*/
             this.$router.push('index')
           } else {
             this.$message.error('验证码错误');

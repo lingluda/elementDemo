@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import ps from '../utils/ps'
 Vue.use(Router)
 
+import hothip from '@/page/tour_heat/index.vue'
+
 let router = new Router({
   routes: [
     {
@@ -18,17 +20,15 @@ let router = new Router({
           redirect: '/index',
         },
         {
-          path: '/index',
-          name: 'index',
-          meta: {requireAuth: true},
-          component: resolve => {
-            require(['@/page/tour_heat/index.vue'], resolve)
-          }
+          "path": "/index",
+          "name": "index",
+          meta: {requireAuth: "index"},
+          component:hothip,
         },
         {
           path: '/situation',
           name: 'situation',
-          meta: {requireAuth: true},
+          meta: {requireAuth: 'situation'},
           component: resolve => {
             require(['@/page/tour_heat/dd.vue'], resolve)
           }
@@ -36,9 +36,17 @@ let router = new Router({
         {
           path: '/role',
           name: 'role',
-          meta: {requireAuth: true},
+          meta: {requireAuth: 'role'},
           component: resolve => {
             require(['@/page/sysManage/role.vue'], resolve)
+          }
+        },
+        {
+          path: '/user',
+          name: 'user',
+          meta: {requireAuth: 'user'},
+          component: resolve => {
+            require(['@/page/sysManage/upload.vue'], resolve)
           }
         },
       ]
@@ -60,10 +68,14 @@ router.afterEach((to, from, next) => {
 // 拦截登录，token验证
 router.beforeEach((to, from, next) => {
   console.log(typeof to.meta.requireAuth)
-  console.log(to.path)
+  console.log(to.meta.requireAuth)
+  console.log(localStorage.getItem('token'))
+  var fruits = ["index", "Orange", "Apple", "Mango"];
+  var a = fruits.indexOf(to.meta.requireAuth)
+  console.log('aaaaa:::',a)
   if (to.meta.requireAuth) {
     //console.log('value of token',ps.getCookie('token'))
-    if (ps.getCookie('token')) {
+    if (localStorage.getItem('token')) {
       next()
     } else {
       next({
