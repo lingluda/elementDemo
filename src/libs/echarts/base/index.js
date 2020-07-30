@@ -28,5 +28,16 @@ export default {
         textStyle: {
             fontSize: 14
         }
+    },
+  toolbox: {
+    show: true,
+    feature: {
+      saveAsImage: {
+        show:true,
+        excludeComponents :['toolbox'],
+        pixelRatio: 2
+      }
     }
+  }
+//写在option中，这样会在图形右上角产生一个保存为图片的标识，点击即可下载图片，这种方法试用于网站点击保存的需求
 }

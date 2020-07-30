@@ -2,22 +2,36 @@ import axios from 'axios'
 import qs from 'qs'
 import '../utils/dateformat.js'
 import ElementUI from 'element-ui'
+import { Loading } from 'element-ui'
 //import router from '../router'
 
 axios.defaults.timeout = 5000;                        //响应时间
-axios.defaults.headers.post['token_x'] = localStorage.getItem('token') || '1111';        //配置请求头
+//axios.defaults.headers.post['Cookie'] = 'UserCode=SuperAdmin; ASP.NET_SessionId=jcueuqoahkce1xn3qrlirruh';        //配置请求头
 // axios.defaults.baseURL = '';   //配置接口地址
 // axios.defaults.baseURL = 'https://tglpt.ybsjyyn.com/zhgl/im/'
-axios.defaults.baseURL = 'http://localhost/'
+// axios.defaults.baseURL = 'http://10.162.80.8:90/'
 
 let ps = {}
 ps.post = function (url, params, callback) {
+
   axios.post(url, qs.stringify(params)).then(resp => {
     if (resp.data.code == 0) {
       callback(resp.data)
     } else {
       ElementUI.Message.error(resp.data.msg);
     }
+  })
+}
+ps.get = function (url,params,callback){
+  let loadingInstance = Loading.service({
+    lock: true,
+    text: 'Loading',
+    spinner: 'el-icon-loading',
+    background: 'rgba(0, 0, 0, 0.1)'
+  })
+  axios.get(url, qs.stringify(params)).then(resp=>{
+    callback(resp.data.Data)
+    loadingInstance.close()
   })
 }
 ps.posts = function (url, params, callback) {

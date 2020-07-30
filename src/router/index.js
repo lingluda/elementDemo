@@ -58,7 +58,17 @@ let router = new Router({
       component: resolve => {
         require(['@/page/login.vue'], resolve)
       },
-    }
+    },
+
+ /*   {
+      path: '/',
+      name: 'ratio',
+      meta: {requireAuth: false},
+      component: resolve => {
+        // src/page/mes_delivery/ratio_keep.vue
+        require(['@/page/mes_delivery/impErp.vue'], resolve)
+      },
+    }*/
   ]
 })
 //切换页面回到顶部
@@ -66,7 +76,7 @@ router.afterEach((to, from, next) => {
   window.scrollTo(0, 0);
 })
 // 拦截登录，token验证
-router.beforeEach((to, from, next) => {
+/*router.beforeEach((to, from, next) => {
   console.log(typeof to.meta.requireAuth)
   console.log(to.meta.requireAuth)
   console.log(localStorage.getItem('token'))
@@ -85,5 +95,5 @@ router.beforeEach((to, from, next) => {
   } else {
     next()
   }
-})
+})*/
 export default router

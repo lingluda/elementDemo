@@ -97,6 +97,7 @@
     methods: {
       handleNodeClick(data, checked) {
         if (data.indexOf('children')) {
+
           console.log(data, checked);
         }
       }

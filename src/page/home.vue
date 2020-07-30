@@ -39,17 +39,17 @@
         </el-submenu>
       </el-menu>
       <img src="../assets/imgs/tabRight.png" v-if="isCollapse"
-           style="position: absolute;margin: 88vh 14px 0px;background: #4d4d4d;border-radius: 20px"
+           style="position: absolute;left:0px;margin: 88vh 14px 0px;background: #4d4d4d;border-radius: 20px"
            @click="push(false)"></img>
       <img src="../assets/imgs/tabLeft.png" v-if="!isCollapse"
-           style="position: absolute;margin: 88vh 14px 0px;background: #4d4d4d;border-radius: 20px"
+           style="position: absolute;left:0px;margin: 88vh 14px 0px;background: #4d4d4d;border-radius: 20px"
            @click="push(true)"></img>
 
       <el-main>
         <div class="texts">十二
         </div>
         <div>
-          <router-view style="background: #f2f2f2;height: calc(100vh - 105px);overflow-y: scroll;"/>
+          <router-view style="background: #f2f2f2;height: calc(100vh - 107px);overflow-y: scroll;"/>
         </div>
       </el-main>
     </el-container>
@@ -195,7 +195,7 @@
     },
     mounted() {
       //vuex初始化
-      //this.$store.dispatch('init')
+      this.$store.dispatch('init')
       this.get_all_city()
     }
   }
@@ -205,7 +205,7 @@
   body {
     margin: 0;
     padding: 0;
-    //overflow-y: hidden;
+    overflow-y: hidden;
     //overflow-x: hidden;
   }
 
@@ -233,7 +233,7 @@
 
   .el-main {
     background-color: #f2f2f2;
-    padding: 0px 0px 20px 17px;
+    padding: 0px 0px 25px 17px;
     color: #333;
     min-width: 960px;
     min-height: calc(100vh - 67px);

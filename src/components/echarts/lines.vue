@@ -1,5 +1,5 @@
 <template>
-    <div class="to-xyyLine" v-loading="true">
+    <div class="to-xyyLine" v-loading="false">
         <div class="to-echart" ref="echart"></div>
     </div>
 </template>

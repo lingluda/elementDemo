@@ -114,6 +114,16 @@
       mounted(){
         let dom = this.$refs.echart
         let opt = {
+          toolbox: {
+            show: true,
+            feature: {
+              saveAsImage: {
+                show:true,
+                excludeComponents :['toolbox'],
+                pixelRatio: 2
+              }
+            }
+          },
           title: {
             text: '  龘爷在此祝厚哥\n本命🐖年顺利嫁出去!',
             top: 20,
